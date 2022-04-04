@@ -14,12 +14,12 @@ type
 type
   IPersistable = interface
   ['{F66DB7BE-FB3A-4BE1-8A4F-5C438D4D14AA}']
-    procedure LoadFromFile(const FileName: string);
-    procedure LoadFromStream(Stream: TStream);
-    procedure LoadFromString(const S: string);
-    procedure SaveToFile(const FileName: string; NormalizeMode: TNormalizeMode = nrmd_UTF16);
-    procedure SaveToStream(Stream: TStream; NormalizeMode: TNormalizeMode = nrmd_UTF16);
-    procedure SaveToString(var S: string; NormalizeMode: TNormalizeMode = nrmd_UTF16);
+    function LoadFromFile(const FileName: string): Boolean;
+    function LoadFromStream(Stream: TStream): Boolean;
+    function LoadFromString(const S: string): Boolean;
+    function SaveToFile(const FileName: string; NormalizeMode: TNormalizeMode = nrmd_UTF16; Crypted: Boolean = False): Boolean;
+    function SaveToStream(Stream: TStream; NormalizeMode: TNormalizeMode = nrmd_UTF16): Boolean;
+    function SaveToString(var S: string; NormalizeMode: TNormalizeMode = nrmd_UTF16): Boolean;
   end;
 
 implementation
